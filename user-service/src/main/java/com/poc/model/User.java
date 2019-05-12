@@ -14,16 +14,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "User")
 public class User {
-	public List<Address> getAddress() {
-		return address;
-	}
-
-	public void setAddress(List<Address> address) {
-		this.address = address;
-	}
+	
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long user_id;
 	private String name;
 	private int age;
@@ -33,6 +27,13 @@ public class User {
             mappedBy = "user")
 	public List<Address> address;
 	public User() {
+	}
+	public List<Address> getAddress() {
+		return address;
+	}
+
+	public void setAddress(List<Address> address) {
+		this.address = address;
 	}
 
 	public User(Long user_id, String name, int age) {
